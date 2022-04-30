@@ -44,16 +44,18 @@ def build_first(categories: List[List], applicant: List, k: int) -> List:
 
 def applicable(applicant: List, Job) -> bool: ...
 
+# Need: sc_matrix,
+
 
 skills = []
 profile = []
 activity = []
-category_matrix = [[]]
+sc_matrix = [[]]
 act_num = 1
 k = 10
 n = len(skills)  # number of skills
 applicant = applicant_vector(profile, activity, act_num)
-first_k = build_first(category_matrix, applicant, k)
+first_k = build_first(sc_matrix, applicant, k)
 Q = pq(first_k, k)
 
 # Layer 1.
@@ -78,15 +80,12 @@ def num_jobs(Q: pq) -> List:
     return num_jobs
 
 
-def x_applicable_jobs(v: List, applicant: List, x: int) -> List:
+def x_jobs(v: List, x: int) -> List:
     i = 0
-    k = 0
     jobs = []
-    while i < x and k < len(v):
-        if applicable(applicant, v[i]):
-            jobs += v[i]
-            i += 1
-        k += 1
+    while i < x and i < len(v):
+        jobs += v[i]
+        i += 1
     return jobs
 
 
@@ -98,7 +97,7 @@ def def_joblist(Q: pq, applicant: List) -> List:
     M = []
     for i in range(len(l)):
         v = M[l[i][-2]]
-        job_list += x_applicable_jobs(v, applicant, num_job[i])
+        job_list += x_jobs(v, num_job[i])
     return job_list
 
 # elements in the queue will be [v,'id', d(v,u)**2] where u is the application.
