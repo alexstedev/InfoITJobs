@@ -36,8 +36,7 @@ export function generateSitemap(appConfig: ISettings, res: any, req: any): any {
 
 export function generateRss(appConfig: ISettings, res: any, req: any): any {
   let jobListings: any = {
-    children: [], title: `${appConfig.companyName} Job Opportunities`, link: `${req.protocol}://${req.hostname}${req.originalUrl}`, pubDate: new Date().toUTCString(), ttl: 5
-  };
+    children: [], title: `${appConfig.companyName} Job Opportunities`, link: `${req.protocol}://${req.hostname}${req.originalUrl}`, pubDate: new Date().toUTCString(), ttl: 5};
   let jobsUrl: string = `https://public-rest${appConfig.service.swimlane}.bullhornstaffing.com/rest-services/${appConfig.service.corpToken}/search/JobOrder?query=(isOpen:1%20AND%20isDeleted:0)${getQuery(appConfig)}&fields=id,title,address(city,state,zip),employmentType,dateLastPublished,publicDescription&count=500&sort=-dateLastPublished&start=0`;
   let body: string = '';
   get(jobsUrl, (response: IncomingMessage) => {
@@ -59,7 +58,7 @@ export function generateRss(appConfig: ISettings, res: any, req: any): any {
             { name: 'state', text: job.address.state },
             { name: 'zip', text: job.address.zip },
             { name: 'pubDate', text: postDate.toUTCString() },
-            { name: 'link', text: `${req.protocol}://${req.hostname}${req.originalUrl.replace('/feed', '/jobs')}/${job.id}` },
+            { name: 'link', text: `${req.protocol}://${req.hostname}${req.originalUrl.replace('/feed', '/jobs')}/${job.id}`},
           ],
         });
       });
@@ -95,7 +94,7 @@ function getQuery(appConfig: ISettings): string {
   return query;
 }
 
-function escapeHtml(text: any): string {
+function escapeHtml(text: any): string  {
   if (!text) {
     return '';
   }

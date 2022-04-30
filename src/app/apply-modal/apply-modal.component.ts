@@ -43,19 +43,19 @@ export class ApplyModalComponent implements OnInit {
   public consentControl: any;
   public applying: boolean = false;
   public consentCheckbox: boolean = SettingsService.settings.privacyConsent.consentCheckbox;
-  public showCategory: boolean  = SettingsService.settings.service.showCategory;
+  public showCategory: boolean = SettingsService.settings.service.showCategory;
   public isIos: boolean = SettingsService.isIos;
   private APPLIED_JOBS_KEY: string = 'APPLIED_JOBS_KEY';
 
   constructor(private formUtils: FormUtils,
-              public params: NovoModalParams,
-              private modalRef: NovoModalRef,
-              private applyService: ApplyService,
-              private analytics: AnalyticsService,
-              private toaster: NovoToastService,
-              private router: Router,
-              private translate: TranslateService,
-               ) { this.toaster.parentViewContainer = this.params['viewContainer']; }
+    public params: NovoModalParams,
+    private modalRef: NovoModalRef,
+    private applyService: ApplyService,
+    private analytics: AnalyticsService,
+    private toaster: NovoToastService,
+    private router: Router,
+    private translate: TranslateService,
+  ) { this.toaster.parentViewContainer = this.params['viewContainer']; }
 
   public ngOnInit(): void {
     this.job = this.params['job'];
@@ -101,8 +101,8 @@ export class ApplyModalComponent implements OnInit {
         hidden: false,
         options: [
           { value: 'M', label: this.translate.instant('EEOC.GENDER_MALE') },
-          { value: 'F', label: this.translate.instant('EEOC.GENDER_FEMALE')},
-          { value: 'D', label: this.translate.instant('EEOC.GENDER_ND')},
+          { value: 'F', label: this.translate.instant('EEOC.GENDER_FEMALE') },
+          { value: 'D', label: this.translate.instant('EEOC.GENDER_ND') },
         ],
       }), new PickerControl({
         key: 'ethnicity',
@@ -133,9 +133,9 @@ export class ApplyModalComponent implements OnInit {
         hidden: false,
         options: [
           { value: 'P', label: this.translate.instant('EEOC.VETERAN_P') },
-          { value: 'V', label: this.translate.instant('EEOC.VETERAN_V')},
-          { value: 'N', label: this.translate.instant('EEOC.VETERAN_N')},
-          { value: 'D', label: this.translate.instant('EEOC.VETERAN_D')},
+          { value: 'V', label: this.translate.instant('EEOC.VETERAN_V') },
+          { value: 'N', label: this.translate.instant('EEOC.VETERAN_N') },
+          { value: 'D', label: this.translate.instant('EEOC.VETERAN_D') },
         ],
       }),
     ];
@@ -148,8 +148,8 @@ export class ApplyModalComponent implements OnInit {
         hidden: false,
         options: [
           { value: 'Y', label: this.translate.instant('EEOC.DISABILITY_Y') },
-          { value: 'N', label: this.translate.instant('EEOC.DISABILITY_N')},
-          { value: 'D', label: this.translate.instant('EEOC.DISABILITY_D')},
+          { value: 'N', label: this.translate.instant('EEOC.DISABILITY_N') },
+          { value: 'D', label: this.translate.instant('EEOC.DISABILITY_D') },
         ],
       }),
     ];
@@ -228,7 +228,7 @@ export class ApplyModalComponent implements OnInit {
 
       let formData: FormData = new FormData();
       formData.append('resume', this.form.value.resume[0].file);
-      this.applyService.apply(this.job.id, requestParams, formData).subscribe(this.applyOnSuccess.bind(this), this.applyOnFailure.bind(this) );
+      this.applyService.apply(this.job.id, requestParams, formData).subscribe(this.applyOnSuccess.bind(this), this.applyOnFailure.bind(this));
     }
   }
 
@@ -238,7 +238,8 @@ export class ApplyModalComponent implements OnInit {
       this.router.navigate([url]);
     } else {
       window.open(url);
-    }  }
+    }
+  }
 
   private applyOnSuccess(res: any): void {
     let toastOptions: any = {
