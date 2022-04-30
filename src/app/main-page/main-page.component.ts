@@ -1,6 +1,5 @@
-import { Component, ViewContainerRef } from '@angular/core';
-// import { ModalFormComponent } from '../start-modal/start-modal.component';
-import { NovoModalService } from 'novo-elements';
+import { Component } from '@angular/core';
+
 
 
 
@@ -19,12 +18,7 @@ export class MainPageComponent {
   public sidebarCss: object = {};
 
 
-  constructor(
-    private modalService: NovoModalService,
-    private viewContainerRef: ViewContainerRef,
-  ) {
-    // this.modalService.parentViewContainer = this.viewContainerRef;
-    // this.modalService.open(ModalFormComponent, {}).onClosed.then();
+  constructor() {
   }
 
   public onSidebarFilter(filter: any): void {
