@@ -57,7 +57,7 @@ class Priority_queue:
             if ind == 0:
                 work = False
 
-    def _remove_min(self):
+    def remove_max(self):
         aux = self._heap[self._size]
         self._heap.pop()
         self._heap[1] = aux
@@ -68,7 +68,23 @@ class Priority_queue:
             print(e, end=" ")
         print()
 
-# TO DO:
-# NSA SE given a database, weights and activity vector
-# Updates activity sum in terms of given info, storing number of activity (mean)
-# Clean data and create a vector of IT skills
+    def queue_to_list(self):
+        l = []
+        for i in range(self._heap):
+            l.append(self._heap[i][:len(self._heap)-1])
+        return l
+
+    def max_element(self):
+        return self._heap[1][-1]
+
+    def prob_vector(self):
+        d = 0
+        for i in range(len(self._heap)-1):
+            d += self._heap[i][-1]
+        assert(d != 0)
+        c = self.max_element()
+        l = self.queue_to_list()
+        p = []
+        for i in range(len(self._heap)-1):
+            p.append(l[i]/c)
+        return p

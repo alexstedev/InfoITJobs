@@ -6,7 +6,7 @@ v = [[3], [11], [30], [2], [31], [8], [6], [13], [26], [30]]
 
 Q = pq(v, 10)
 Q.print_queue()
-Q._remove_min()
+Q.remove_max()
 Q.print_queue()
 Q.insert([14])
 Q.print_queue()

@@ -43,7 +43,7 @@ def _bubble_down(v: List, i: int):
         swap(v, ind, 2*ind)
 
 
-def _remove_min(v: List):
+def remove_max(v: List):
     aux = v[-1]
     v.pop()
     v[1] = aux
@@ -54,5 +54,5 @@ v = [[3], [11], [30], [2], [31], [8], [6], [13], [26], [30]]
 print(v)
 w = _build_heap(v, 10)
 print(w)
-_remove_min(w)
+remove_max(w)
 print(w)
