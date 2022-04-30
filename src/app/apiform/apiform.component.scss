@@ -1,16 +1,22 @@
 html {
-	font-size: 62.5%;
-	line-height: 1.4;
+    font-size: 62.5%;
+    line-height: 1.4;
 }
+
 body {
-	color:  rgba(0,0,0,0.87);
-	font-family: 'Roboto', sans-serif;
-	font-size: 1.6rem;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+}
+
+.column {
+    width: 10%;
+    float: left;
 }
 
 nested-select {
-	display: block;
-	width: 300px;
+    display: block;
+    width: 300px;
 }
 
 /*
@@ -18,7 +24,7 @@ nested-select {
  * permanently open.
  */
 nested-select md-input-container {
-	width: 100%;
+    width: 100%;
 }
 
 /*
@@ -27,15 +33,16 @@ nested-select md-input-container {
  * need to override a few styles.
  */
 nested-select-selection.md-select-value {
-	border-bottom-color: rgba(0, 0, 0, 0.12);
-	cursor: pointer;
+    border-bottom-color: rgba(0, 0, 0, 0.12);
+    cursor: pointer;
 }
+
 nested-select-selection.md-select-value:focus,
 nested-select-selection.md-select-value.focused {
-	border-bottom-color: #3F51B5;
-	border-bottom-width: 2px;
-	outline: none;
-	padding-bottom: 0;
+    border-bottom-color: #3F51B5;
+    border-bottom-width: 2px;
+    outline: none;
+    padding-bottom: 0;
 }
 
 /*
@@ -47,10 +54,10 @@ nested-select-selection.md-select-value.focused {
  * it pops over the main page content.
  */
 nested-select-menu {
-	display:  none;
-	position: absolute;
-	transform: translateY(-16px);
-	z-index: 100;
+    display: none;
+    position: absolute;
+    transform: translateY(-16px);
+    z-index: 100;
 }
 
 /*
@@ -61,23 +68,23 @@ nested-select-menu {
  * this focus, though, so disable the normal outline.
  */
 nested-select-menu:focus {
-	outline: none;
+    outline: none;
 }
 
 /*
  * Adjust the menu if it is permanently fixed open.
  */
 nested-select[fixed-menu] nested-select-menu {
-	display: block;
-	position: static;
-	z-index: inherit;
+    display: block;
+    position: static;
+    z-index: inherit;
 }
 
 /*
  * When the meny is visible, show it.
  */
 nested-select-menu.visible {
-	display: block;
+    display: block;
 }
 
 /*
@@ -87,7 +94,7 @@ nested-select-menu.visible {
  * it's placed "on top of" that container.
  */
 nested-select:not([multiple]) nested-select-menu.visible {
-	transform: translate(2px,-48px);
+    transform: translate(2px, -48px);
 }
 
 /*
@@ -95,31 +102,32 @@ nested-select:not([multiple]) nested-select-menu.visible {
  * includes a header with the search field.
  */
 nested-select-header {
-	background-color: rgb(250, 250, 250);
-	border-bottom: 1px solid rgba(0,0,0,0.12);
-	padding-left: 10.667px;
-	height: 48px;
-	cursor: pointer;
-	position: relative;
-	display: flex;
-	align-items: center;
-	width: auto;
+    background-color: rgb(250, 250, 250);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    padding-left: 10.667px;
+    height: 48px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: auto;
 }
+
 nested-select-header input[type=search] {
-	background-color: transparent;
-	border: none;
-	outline: none;
-	height: 100%;
-	width: 100%;
-	padding: 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    height: 100%;
+    width: 100%;
+    padding: 0;
 }
 
 /*
  * Beneath the header is the actual menu content.
  */
 nested-select md-content {
-	overflow-x: hidden;
-	padding: 16px 0 0 10.667px;
+    overflow-x: hidden;
+    padding: 16px 0 0 10.667px;
 }
 
 /*
@@ -129,14 +137,14 @@ nested-select md-content {
  */
 
 nested-select-option {
-	display: block;
-	width: 100%;
+    display: block;
+    width: 100%;
 }
 
 nested-select-text {
-	display:  flex;
-	height: 40px;
-	width: 100%;
+    display: flex;
+    height: 40px;
+    width: 100%;
 }
 
 /*
@@ -155,34 +163,38 @@ nested-select-text {
  * Styles for the "guide" icons.
  */
 nested-select-guide {
-	left: 8px;
-	position: relative;
-	top: -8px;
+    left: 8px;
+    position: relative;
+    top: -8px;
 }
 
 /*
  * Styles for the collapse/expand buttons
  */
 .nested-select-collapse.nested-select-collapse {
-	flex-shrink: 0;
-	left: 8px;
-	margin: 0px;
-	position: relative;
-	top: -8px;
-	width:  40px;
+    flex-shrink: 0;
+    left: 8px;
+    margin: 0px;
+    position: relative;
+    top: -8px;
+    width: 40px;
 }
+
 .nested-select-collapse ng-md-icon {
-	color:  rgba(0,0,0,0.38);
+    color: rgba(0, 0, 0, 0.38);
 }
+
 .nested-select-collapse:focus ng-md-icon,
 .nested-select-collapse:hover ng-md-icon {
-	color:  rgba(0,0,0,0.87);
+    color: rgba(0, 0, 0, 0.87);
 }
+
 .nested-select-collapse svg {
-	transition: transform 200ms linear 0s;
+    transition: transform 200ms linear 0s;
 }
+
 .nested-select-collapse.collapsed svg {
-	transform: rotate(-90deg);
+    transform: rotate(-90deg);
 }
 
 /*
@@ -193,20 +205,20 @@ nested-select-guide {
  */
 
 nested-select md-checkbox:last-of-type {
-	display: block;
-	margin-left: 16px;
-	width: 100%;
+    display: block;
+    margin-left: 16px;
+    width: 100%;
 }
 
-nested-select md-checkbox > .md-label {
-	overflow-x: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	width: calc(100% - 16px);
+nested-select md-checkbox>.md-label {
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: calc(100% - 16px);
 }
 
-nested-select[multiple] md-checkbox > .md-label {
-	width: calc(100% - 40px - 16px);
+nested-select[multiple] md-checkbox>.md-label {
+    width: calc(100% - 40px - 16px);
 }
 
 /*
@@ -216,14 +228,16 @@ nested-select[multiple] md-checkbox > .md-label {
  * Also display any checked text using the primaru
  * color.
  */
-nested-select:not([multiple]) md-checkbox > .md-container {
-	display: none;
+nested-select:not([multiple]) md-checkbox>.md-container {
+    display: none;
 }
-nested-select:not([multiple]) md-checkbox > .md-label {
-	margin-left: 0;
+
+nested-select:not([multiple]) md-checkbox>.md-label {
+    margin-left: 0;
 }
+
 nested-select:not([multiple]) md-checkbox.md-checked {
-	color: #3F51B5;
+    color: #3F51B5;
 }
 
 /*
@@ -236,12 +250,12 @@ nested-select:not([multiple]) md-checkbox.md-checked {
 nested-select md-checkbox:focus::before,
 nested-select md-checkbox:hover::before,
 nested-select:not([multiple]) md-checkbox.md-checked::before {
-	content: "";
-	position: absolute;
-	height: 40px;
-	width: 200vw;
-	background-color: rgb(238, 238, 238);
-	transform: translate(-100vw,-8px);
+    content: "";
+    position: absolute;
+    height: 40px;
+    width: 200vw;
+    background-color: rgb(238, 238, 238);
+    transform: translate(-100vw, -8px);
 }
 
 /*
@@ -250,11 +264,12 @@ nested-select:not([multiple]) md-checkbox.md-checked::before {
  */
 nested-select button,
 nested-select-guide {
-	z-index: 101;
+    z-index: 101;
 }
+
 nested-select[fixed-menu] button,
 nested-select[fixed-menu] nested-select-guide {
-	z-index: 1;
+    z-index: 1;
 }
 
 /*
@@ -262,6 +277,5 @@ nested-select[fixed-menu] nested-select-guide {
  * this might be animated.
  */
 nested-select-options.collapsed {
-	display: none;
+    display: none;
 }
-

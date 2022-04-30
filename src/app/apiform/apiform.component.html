@@ -1,5 +1,23 @@
-<form ng-app="myApp" ng-controller="myCtrl as vm">
-	<div style="padding: 20px;">
-		<nested-selected options="vm.categories" placeholder="Search items" label="Select categories" multiple collapsible show-selection allow-select-all></nested-select>
-	</div>
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit(customerForm)">
+
+    <div class="column">
+        <label class="switch">
+            <input type="checkbox" formControlName="skill1">
+            <span class="slider">1</span>
+        </label>
+        <br />
+        <label class="switch">
+            <input type="checkbox" formControlName="skill2">
+            <span class="slider">2</span>
+        </label>
+        <br />
+        <label class="switch">
+            <input type="checkbox" formControlName="skill3">
+            <span class="slider">3</span>
+        </label>
+        <br />
+    </div>
+
+    <br />
+    <button type="submit">Submit</button>
 </form>
