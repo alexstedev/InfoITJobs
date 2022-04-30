@@ -1,226 +1,28 @@
-<script>
-    $(function () {
-        $('#QuestionOptions').change(function () {
-            $('#myAnswers > div').hide();
-            $('#myAnswers').find('#' + $(this).val()).fadeIn('slow');
-        });
-    });
-</script>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
 
-<form>
+    <label for="first-name">First Name: </label>
+    <input id="first-name" type="text" formControlName="firstName">
 
-    <select name="studies" id="studies">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
-    </select>
+    <br />
+    <br />
 
-    <div class="container">
+    <label for="last-name">Last Name: </label>
+    <input id="last-name" type="text" formControlName="lastName">
 
-        <form>
-            <h3>What fixtures will be ROAM monitored</h3>
-            <div class="small">(One row must be fully completed)</div>
-            <br />
+    <br />
+    <br />
+    <label class="switch">
+        <input type="checkbox" formControlName="skill1">
+        <span class="slider">Skill 1</span>
+    </label>
+    <br />
 
-            <div class="form-group row">
+    <label class="switch">
+        <input type="checkbox" formControlName="skill2">
+        <span class="slider">Skill 2</span>
+    </label>
+    <br />
 
-                <div id="myQuestions" class="select-options col-xs-5">
-                    <select id="QuestionOptions" class="form-control">
-                        <option class="default-label" value="" disabled selected>Please select one of the following:
-                        </option>
-                        <option value="chooseLocking">Decorative with locking photocell</option>
-                        <option value="chooseButton">Decorative with button photocell</option>
-                        <option value="chooseCobrahead">Rodway cobrahead with locking photocell</option>
-                        <option value="chooseWithout">Fixtures WITHOUT locking photocell receptacle</option>
-                        <option value="chooseOther">Other</option>
-                    </select>
-                </div>
 
-                <div id="myAnswers" class="col-xs-12">
-
-                    <div id="chooseLocking" class="fixtures select-answers">
-
-                        <h4>Decorative with locking photocell</h4>
-                        <div class="row">
-
-                            <div class="col-xs-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Quantity</span>
-                                    <input type="text" class="form-control" placeholder="enter quantiy">
-                                </div>
-                            </div>
-
-                            <div class="col-xs-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Voltage/Hz</span>
-                                    <input type="text" class="form-control" placeholder="enter voltage">
-                                </div>
-                            </div>
-
-                            <div class="col-xs-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Wattage</span>
-                                    <input type="text" class="form-control" placeholder="enter wattage">
-                                </div>
-                            </div>
-
-                            <div class="col-xs-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Lamp Type</span>
-                                    <input type="text" class="form-control" placeholder="enter lamp type">
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div id="chooseButton" class="fixtures select-answers">
-                        <h4>Decorative with button photocell</h4>
-                        <div class="row">
-
-                            <div class="col-xs-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Quantity</span>
-                                    <input type="text" class="form-control" placeholder="enter quantiy">
-                                </div>
-                            </div>
-
-                            <div class="col-xs-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Voltage/Hz</span>
-                                    <input type="text" class="form-control" placeholder="enter voltage">
-                                </div>
-                            </div>
-
-                            <div class="col-xs-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Wattage</span>
-                                    <input type="text" class="form-control" placeholder="enter wattage">
-                                </div>
-                            </div>
-
-                            <div class="col-xs-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Lamp Type</span>
-                                    <input type="text" class="form-control" placeholder="enter lamp type">
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div id="chooseCobrahead" class="fixtures select-answers">
-                        <h4>Decorative with locking photocell</h4>
-                        <div class="row">
-
-                            <div class="col-xs-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Quantity</span>
-                                    <input type="text" class="form-control" placeholder="enter quantiy">
-                                </div>
-                            </div>
-
-                            <div class="col-xs-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Voltage/Hz</span>
-                                    <input type="text" class="form-control" placeholder="enter voltage">
-                                </div>
-                            </div>
-
-                            <div class="col-xs-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Wattage</span>
-                                    <input type="text" class="form-control" placeholder="enter wattage">
-                                </div>
-                            </div>
-
-                            <div class="col-xs-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Lamp Type</span>
-                                    <input type="text" class="form-control" placeholder="enter lamp type">
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div id="chooseWithout" class="fixtures select-answers">
-                        <h4>Fixtures WITHOUT locking photocell receptacle</h4>
-                        <div class="row">
-
-                            <div class="col-xs-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Quantity</span>
-                                    <input type="text" class="form-control" placeholder="enter quantiy">
-                                </div>
-                            </div>
-
-                            <div class="col-xs-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Voltage/Hz</span>
-                                    <input type="text" class="form-control" placeholder="enter voltage">
-                                </div>
-                            </div>
-
-                            <div class="col-xs-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Wattage</span>
-                                    <input type="text" class="form-control" placeholder="enter wattage">
-                                </div>
-                            </div>
-
-                            <div class="col-xs-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Lamp Type</span>
-                                    <input type="text" class="form-control" placeholder="enter lamp type">
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div id="chooseOther" class="fixtures select-answers">
-                        <h4>So that's who you want to be? The person that can't be bothered so you select other?</h4>
-                        <div class="row">
-
-                            <div class="col-xs-5">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Other</span>
-                                    <input type="text" class="form-control" placeholder="enter other details">
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </form>
-    </div>
+    <button type="submit">Submit</button>
 </form>
-
-
-<!-- <input type="button"><br />
-<input type="checkbox"><br />
-<input type="color"><br />
-<input type="date"><br />
-<input type="datetime-local"><br />
-<input type="email"><br />
-<input type="file"><br />
-<input type="hidden"><br />
-<input type="image"><br />
-<input type="month"><br />
-<input type="number"><br />
-<input type="password"><br />
-<input type="radio"><br />
-<input type="range"><br />
-<input type="reset"><br />
-<input type="search"><br />
-<input type="submit"><br />
-<input type="tel"><br />
-<input type="text"><br />
-<input type="time"><br />
-<input type="url"><br />
-<input type="week"><br />
-</form> -->
