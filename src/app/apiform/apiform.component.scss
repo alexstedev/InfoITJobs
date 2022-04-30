@@ -1,255 +1,267 @@
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+html {
+	font-size: 62.5%;
+	line-height: 1.4;
 }
-
 body {
-    background: linear-gradient(to right, #ea1d6f 0%, #eb466b 100%);
-    font-size: 12px;
+	color:  rgba(0,0,0,0.87);
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.6rem;
 }
 
-body,
-button,
-input {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    letter-spacing: 1.4px;
+nested-select {
+	display: block;
+	width: 300px;
 }
 
-.background {
-    display: flex;
-    min-height: 100vh;
-}
+/*
+ * Nested selects include an input container unless they're
+ * permanently open.
+ */
+	nested-select md-input-container {
+		width: 100%;
+	}
 
-.container {
-    flex: 0 0 700px;
-    margin: auto;
-    padding: 10px;
-}
+	/*
+	 * Most of the styling for the contents of the input
+	 * container come from Angular Material, but we do
+	 * need to override a few styles.
+	 */
+	nested-select-selection.md-select-value {
+		border-bottom-color: rgba(0, 0, 0, 0.12);
+		cursor: pointer;
+	}
+	nested-select-selection.md-select-value:focus,
+	nested-select-selection.md-select-value.focused {
+		border-bottom-color: #3F51B5;
+		border-bottom-width: 2px;
+		outline: none;
+		padding-bottom: 0;
+	}
 
-.screen {
-    position: relative;
-    background: #3e3e3e;
-    border-radius: 15px;
-}
+	/*
+	 * The select options themselves are enclosed in a menu
+	 * container. This container may be permanently open or
+	 * it may open/close based on a trigger. By default, the
+	 * menu is triggerable, so set it to display: none.
+	 * Also give it an absolute position and a z-index so
+	 * it pops over the main page content.
+	 */
+	nested-select-menu {
+		display:  none;
+		position: absolute;
+		transform: translateY(-16px);
+		z-index: 100;
+	}
 
-.screen:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 20px;
-    right: 20px;
-    bottom: 0;
-    border-radius: 15px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
-    z-index: -1;
-}
+	/*
+	 * The menu container has a tabindex so that clicking
+	 * anywhere within it keeps the focus within the nested
+	 * select. (Otherwise, focus may revert to the body
+	 * element.) There's no need to visually distinguish
+	 * this focus, though, so disable the normal outline.
+	 */
+	nested-select-menu:focus {
+		outline: none;
+	}
 
-.screen-header {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    background: #4d4d4f;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-}
+	/*
+	 * Adjust the menu if it is permanently fixed open.
+	 */
+	nested-select[fixed-menu] nested-select-menu {
+		display: block;
+		position: static;
+		z-index: inherit;
+	}
 
-.screen-header-left {
-    margin-right: auto;
-}
+	/*
+	 * When the meny is visible, show it.
+	 */
+	nested-select-menu.visible {
+		display: block;
+	}
 
-.screen-header-button {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    margin-right: 3px;
-    border-radius: 8px;
-    background: white;
-}
+	/*
+	 * If the select only supports single values, there's
+	 * no need to show the accumulated values in the
+	 * input container, so shift the open menu up so that
+	 * it's placed "on top of" that container.
+	 */
+	nested-select:not([multiple]) nested-select-menu.visible {
+		transform: translate(2px,-48px);
+	}
 
-.screen-header-button.close {
-    background: #ed1c6f;
-}
+	/*
+	 * If search/filter is available, the menu container
+	 * includes a header with the search field.
+	 */
+	nested-select-header {
+		background-color: rgb(250, 250, 250);
+		border-bottom: 1px solid rgba(0,0,0,0.12);
+		padding-left: 10.667px;
+		height: 48px;
+		cursor: pointer;
+		position: relative;
+		display: flex;
+		align-items: center;
+		width: auto;
+	}
+	nested-select-header input[type=search] {
+		background-color: transparent;
+		border: none;
+		outline: none;
+		height: 100%;
+		width: 100%;
+		padding: 0;
+	}
 
-.screen-header-button.maximize {
-    background: #e8e925;
-}
+	/*
+	 * Beneath the header is the actual menu content.
+	 */
+	nested-select md-content {
+		overflow-x: hidden;
+		padding: 16px 0 0 10.667px;
+	}
 
-.screen-header-button.minimize {
-    background: #74c54f;
-}
+	/*
+	 * The main content is a series of selectable
+	 * options. An option includes the text and
+	 * related styling cues (icons).
+	 */
 
-.screen-header-right {
-    display: flex;
-}
+	nested-select-option {
+		display: block;
+		width: 100%;
+	}
 
-.screen-header-ellipsis {
-    width: 3px;
-    height: 3px;
-    margin-left: 2px;
-    border-radius: 8px;
-    background: #999;
-}
+	nested-select-text {
+		display:  flex;
+		height: 40px;
+		width: 100%;
+	}
 
-.screen-body {
-    display: flex;
-}
+	/*
+	 * Each option may have a series of icons "in front
+	 * of it". There are two types of icons. If the
+	 * select is collapsible, then each option that has
+	 * children will include a button to collapse or
+	 * expand the display of those children. And if
+	 * the component only allows single selections, then
+	 * additional icons add visual guidance to the
+	 * heirarchy. (For multiple selects, the checkboxes
+	 * provide that visual guidance.)
+	 */
 
-.screen-body-item {
-    flex: 1;
-    padding: 50px;
-}
+	/*
+	 * Styles for the "guide" icons.
+	 */
+	nested-select-guide {
+		left: 8px;
+		position: relative;
+		top: -8px;
+	}
 
-.screen-body-item.left {
-    display: flex;
-    flex-direction: column;
-}
+	/*
+	 * Styles for the collapse/expand buttons
+	 */
+	.nested-select-collapse.nested-select-collapse {
+		flex-shrink: 0;
+		left: 8px;
+		margin: 0px;
+		position: relative;
+		top: -8px;
+		width:  40px;
+	}
+	.nested-select-collapse ng-md-icon {
+		color:  rgba(0,0,0,0.38);
+	}
+	.nested-select-collapse:focus ng-md-icon,
+	.nested-select-collapse:hover ng-md-icon {
+		color:  rgba(0,0,0,0.87);
+	}
+	.nested-select-collapse svg {
+		transition: transform 200ms linear 0s;
+	}
+	.nested-select-collapse.collapsed svg {
+		transform: rotate(-90deg);
+	}
 
-.app-title {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    color: #ea1d6f;
-    font-size: 26px;
-}
+	/*
+	 * Individual options are implemented as Angular
+	 * Material checkboxes, and most of their styles
+	 * come from that library. We do need to make a
+	 * few adjustments, though.
+	 */
 
-.app-title:after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    width: 25px;
-    height: 4px;
-    background: #ea1d6f;
-}
+	nested-select md-checkbox:last-of-type {
+		display: block;
+		margin-left: 16px;
+		width: 100%;
+	}
 
-.app-contact {
-    margin-top: auto;
-    font-size: 8px;
-    color: #888;
-}
+	nested-select md-checkbox > .md-label {
+		overflow-x: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		width: calc(100% - 16px);
+	}
 
-.app-form-group {
-    margin-bottom: 15px;
-}
+	nested-select[multiple] md-checkbox > .md-label {
+		width: calc(100% - 40px - 16px);
+	}
 
-.app-form-group.message {
-    margin-top: 40px;
-}
+	/*
+	 * If the component is using single select, don't
+	 * display the actual checkboxes (and don't shift
+	 * the label over to leave room for them).
+	 * Also display any checked text using the primaru
+	 * color.
+	 */
+	nested-select:not([multiple]) md-checkbox > .md-container {
+		display: none;
+	}
+	nested-select:not([multiple]) md-checkbox > .md-label {
+		margin-left: 0;
+	}
+	nested-select:not([multiple]) md-checkbox.md-checked {
+		color: #3F51B5;
+	}
 
-.app-form-group.buttons {
-    margin-bottom: 0;
-    text-align: right;
-}
+	/*
+	 * Since the md-checkbox elements might not
+	 * span the entire width of the menu, we use
+	 * a pseudo-element to render the focus, hover,
+	 * and selected styles. We can extend it the
+	 * full width using a bit of vw trickery.
+	 */
+	nested-select md-checkbox:focus::before,
+	nested-select md-checkbox:hover::before,
+	nested-select:not([multiple]) md-checkbox.md-checked::before {
+		content: "";
+		position: absolute;
+		height: 40px;
+		width: 200vw;
+		background-color: rgb(238, 238, 238);
+		transform: translate(-100vw,-8px);
+	}
 
-.app-form-control {
-    width: 100%;
-    padding: 10px 0;
-    background: none;
-    border: none;
-    border-bottom: 1px solid #666;
-    color: #ddd;
-    font-size: 14px;
-    text-transform: uppercase;
-    outline: none;
-    transition: border-color .2s;
-}
+	/*
+	 * Keep the icons visible even when the option is
+	 * focus/hover/checked by raising their z-index.
+	 */
+	nested-select button,
+	nested-select-guide {
+		z-index: 101;
+	}
+	nested-select[fixed-menu] button,
+	nested-select[fixed-menu] nested-select-guide {
+		z-index: 1;
+	}
 
-.app-form-control::placeholder {
-    color: #666;
-}
+	/*
+	 * Handle collapse/expand via CSS. Someday
+	 * this might be animated.
+	 */
+	nested-select-options.collapsed {
+		display: none;
+	}
 
-.app-form-control:focus {
-    border-bottom-color: #ddd;
-}
-
-.app-form-button {
-    background: none;
-    border: none;
-    color: #ea1d6f;
-    font-size: 14px;
-    cursor: pointer;
-    outline: none;
-}
-
-.app-form-button:hover {
-    color: #b9134f;
-}
-
-.credits {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    color: #ffa4bd;
-    font-family: 'Roboto Condensed', sans-serif;
-    font-size: 16px;
-    font-weight: normal;
-}
-
-.credits-link {
-    display: flex;
-    align-items: center;
-    color: #fff;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.dribbble {
-    width: 20px;
-    height: 20px;
-    margin: 0 5px;
-}
-
-@media screen and (max-width: 520px) {
-    .screen-body {
-        flex-direction: column;
-    }
-
-    .screen-body-item.left {
-        margin-bottom: 30px;
-    }
-
-    .app-title {
-        flex-direction: row;
-    }
-
-    .app-title span {
-        margin-right: 12px;
-    }
-
-    .app-title:after {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .screen-body {
-        padding: 40px;
-    }
-
-    .screen-body-item {
-        padding: 0;
-    }
-}
-
-.fixtures {
-    display: none;
-}
-
-.select-options,
-.select-answers {
-    margin-bottom: 1em;
-}
-
-.default-label,
-option:disabled {
-    background-color: #333;
-    color: #fff;
-    padding: 0.6em 0.5em;
-}
