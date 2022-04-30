@@ -10,6 +10,7 @@ import { NovoFormGroup } from 'novo-elements';
 import { SearchService } from '../services/search/search.service';
 import { Router } from '@angular/router';
 import { IAdditionalLanguageOption } from '../typings/settings';
+import { APIFormComponent } from '../apiform/apiform.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -37,7 +38,7 @@ export class SidebarComponent {
     !SettingsService.isServer;
   public availableLocales: IAdditionalLanguageOption[] =
     SettingsService.settings?.languageDropdownOptions?.choices || [];
-  constructor(private searchService: SearchService, private router: Router) {}
+  constructor(private searchService: SearchService, private router: Router) { }
 
   public searchOnDelay(): void {
     const keywordSearchFields: string[] =
@@ -53,9 +54,8 @@ export class SidebarComponent {
           if (index > 0) {
             searchString += ' OR ';
           }
-          searchString += `${field}{?^^equals}${
-            this.keyword.trim() ? this.keyword.trim() + '*' : ''
-          }`;
+          searchString += `${field}{?^^equals}${this.keyword.trim() ? this.keyword.trim() + '*' : ''
+            }`;
         });
       }
       delete this.filter['ids'];
@@ -108,5 +108,9 @@ export class SidebarComponent {
       resultIds.push(`id{?^^equals}${0}`);
     }
     this.updateFilter('ids', resultIds);
+  }
+
+  public gotoHome(): void {
+    this.router.navigate(['form']);
   }
 }
