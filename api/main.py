@@ -53,15 +53,14 @@ async def condensed_categories():
     response = requests.request("GET", url, headers=headers)
     data = response.json() if response and response.status_code == 200 else None
     
-    it_skills = {}
-
     for i in range(len(data)):
         if data[i]['id'] == 14:
-            starting_id = data[i]['subcategories'][0]['id']
+            it_skills = {}
             for j in range(len(data[i]['subcategories'])):
                 it_skills[data[i]['subcategories'][j]['id']] = data[i]['subcategories'][j]['name']
+            return it_skills
 
-    return it_skills
+    return None
 
     
 
