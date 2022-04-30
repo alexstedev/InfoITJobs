@@ -10,6 +10,7 @@ export class ShareService {
       additionalEmailInfo: (job: any) => '?subject=' + encodeURIComponent(job.title) + '&body=' + this.description(job, window.location.href) + this.additionalEmailInfo(job),
       facebook: () => '?display=popup&app_id=' + this.config.keys.facebook + '&href=' + encodeURIComponent(window.location.href) + '&redirect_uri=' + encodeURIComponent('https://www.facebook.com/') + '&source=facebook',
       twitter: (job: any) => '?text=' + encodeURIComponent(this.description(job)) + '&url=' + encodeURIComponent(window.location.href) + '&source=twitter',
+      linkedin: (job: any) => '?mini=true&source=Bullhorn%20Career%20Portal&title=' + encodeURIComponent(this.description(job)) + '&url=' + encodeURIComponent(window.location.href) + '&source=linkedin',
       email: (job: any) => '?subject=' + encodeURIComponent(job.title) + '&body=' + this.description(job, window.location.href),
     };
   }
