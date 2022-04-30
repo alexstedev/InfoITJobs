@@ -38,7 +38,6 @@ import { TranslationLoader } from './services/localization/loader';
 import { AppRoutingModule } from './app-routing.module';
 import { InfoChipsComponent } from './components/info-chips/info-chips.component';
 
-
 export function initSettings(settings: SettingsService): () => Promise<void> {
   return () => settings.load();
 }

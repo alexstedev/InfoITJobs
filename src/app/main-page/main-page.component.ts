@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-
-
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-main-page',
@@ -18,7 +16,9 @@ export class MainPageComponent {
   public sidebarCss: object = {};
 
 
-  constructor() {
+  constructor(private modalService: NgbModal) {
+    this.modalService.open("content");
+
   }
 
   public onSidebarFilter(filter: any): void {
