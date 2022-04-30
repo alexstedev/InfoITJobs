@@ -1,5 +1,5 @@
 import { Component, ViewContainerRef } from '@angular/core';
-import { ApplyModalComponent } from '../start-modal/apply-modal.component';
+// import { ModalFormComponent } from '../start-modal/start-modal.component';
 import { NovoModalService } from 'novo-elements';
 
 
@@ -14,7 +14,7 @@ export class MainPageComponent {
   public filterCount: number = 1;
   public listFilter: any = {};
   public displaySidebar: boolean = false;
-  public loading: boolean = true;
+  public loading: boolean = false;
   public error: boolean = false;
   public sidebarCss: object = {};
 
@@ -24,11 +24,7 @@ export class MainPageComponent {
     private viewContainerRef: ViewContainerRef,
   ) {
     // this.modalService.parentViewContainer = this.viewContainerRef;
-    this.modalService.open(ApplyModalComponent, {
-      job: "IT",
-      source: "TEST1",
-      viewContainer: this.viewContainerRef,
-    }).onClosed.then();
+    // this.modalService.open(ModalFormComponent, {}).onClosed.then();
   }
 
   public onSidebarFilter(filter: any): void {
