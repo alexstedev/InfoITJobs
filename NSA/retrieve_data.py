@@ -8,19 +8,16 @@ headers = {
 }
 
 
-url = "https://api.infojobs.net/api/7/offer?category=informatica-telecomunicaciones&maxResults=100"
-response = requests.request("GET", url, headers=headers, data=payload)
-data_2 = response.json() if response and response.status_code == 200 else None
-
-# DICT sc-id to sc-str
-sc_id_to_name = {}
-for i in range(len(data_2['items'])):
-    sc_id_to_name[data_2['items'][i]['subcategory']['id']
-                  ] = data_2['items'][i]['subcategory']['value']
-
 url = "https://api.infojobs.net/api/1/candidate/skillcategory"
 response = requests.request("GET", url, headers=headers, data=payload)
 data_1 = response.json() if response and response.status_code == 200 else None
+# DICT sc_id to sc_name
+sc_id_to_name = {}
+for i in range(len(data_1)):
+    if data_1[i]['id'] == 14:
+        for j in range(len(data_1[i]['subcategories'])):
+            sc_id_to_name[data_1[i]['subcategories'][j]['id']
+                          ] = data_1[i]['subcategories'][j]['name']
 
 
 def jobs_from_sc(sc_name: str):  # given sc id
@@ -41,15 +38,30 @@ def sc_to_joblist_map():
         map[sc_id] = jobs_from_sc(sc_id_to_name[sc_id])
 
 
-# LIST OF SC
-list_skills = []
-for s in sc_id_to_name:
-    list_skills.append(s)
-
-
-# LIST OF JOBS
-url = "https://api.infojobs.net/api/7/offer?category=informatica-telecomunicaciones&maxResults=10"
+url = "https://api.infojobs.net/api/1/candidate/skillcategory?includeSkills=true"
 response = requests.request("GET", url, headers=headers, data=payload)
+data_6 = response.json() if response and response.status_code == 200 else None
+skills_id_to_name = {}
+for i in range(len(data_6)):
+    for j in range(len(data_6[i]['subcategories'])):
+        for k in range(len(data_6[i]['subcategories'][j]['skills'])):
+            if 1401 <= data_6[i]['subcategories'][j]['id'] <= 1499:
+                skills_id_to_name[data_6[i]['subcategories'][j]['skills'][k]
+                                  ['id']] = data_6[i]['subcategories'][j]['skills'][k]['name']
 
-data_5 = response.json() if response and response.status_code == 200 else None
-data_5['items'][0]
+category_matrix = []
+for i in range(len(data_6)):
+    for j in range(len(data_6[i]['subcategories'])):
+        skills_vec = []
+        if 1401 <= data_6[i]['subcategories'][j]['id'] <= 1499:
+            category_skills = []
+            for k in range(len(data_6[i]['subcategories'][j]['skills'])):
+                category_skills.append(
+                    data_6[i]['subcategories'][j]['skills'][k]['id'])
+            for sk in skills_id_to_name:
+                if sk in category_skills:
+                    skills_vec.append(1)
+                else:
+                    skills_vec.append(0)
+            category_matrix.append(skills_vec)
+print(category_matrix)
