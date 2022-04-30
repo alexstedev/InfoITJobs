@@ -12,6 +12,7 @@ import { ApplyService } from './services/apply/apply.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SidebarFilterComponent } from './sidebar/sidebar-filter/sidebar-filter.component';
 import { BrowserTransferStateModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import {
   NovoListModule,
   NovoElementsModule,
@@ -38,6 +39,7 @@ import { TranslationLoader } from './services/localization/loader';
 import { AppRoutingModule } from './app-routing.module';
 import { InfoChipsComponent } from './components/info-chips/info-chips.component';
 import { StartModalComponent } from './start-modal/start-modal.component';
+import { APIFormComponent } from './apiform/apiform.component';
 
 export function initSettings(settings: SettingsService): () => Promise<void> {
   return () => settings.load();
@@ -58,6 +60,7 @@ export function initSettings(settings: SettingsService): () => Promise<void> {
     PrivacyPolicyComponent,
     InfoChipsComponent,
     StartModalComponent,
+    APIFormComponent,
   ],
 
   entryComponents: [ApplyModalComponent, ErrorModalComponent],
@@ -73,6 +76,7 @@ export function initSettings(settings: SettingsService): () => Promise<void> {
     FormsModule,
     NovoDropdownModule,
     NovoButtonModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

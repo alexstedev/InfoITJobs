@@ -49,7 +49,7 @@ export class MainPageComponent {
     private translate: TranslateService,) {
 
     this.modalService.parentViewContainer = this.viewContainerRef;
-    this.apply()
+    // this.apply()
   }
 
   public onSidebarFilter(filter: any): void {
@@ -75,6 +75,8 @@ export class MainPageComponent {
       viewContainer: this.viewContainerRef,
     });
   }
+
+
 
   public handleListLoad(loading: boolean): void {
     this.loading = loading;
