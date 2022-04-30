@@ -36,7 +36,7 @@ def applicant_vector(profile: List, activity: List, n: int) -> List:
 
 
 def build_first(categories: List[List], applicant: List, k: int) -> List:
-    # given list of k categories, returns the extension wiht euclidean distance squared.
+    # given list of k categories, returns the extension with euclidean distance squared.
     for i in range(k):
         categories[i] += norm2(categories[i], applicant)
     return categories
@@ -62,7 +62,10 @@ Q = pq(first_k, k)
 def search_engine(Q: pq, categories: List[List], applicant: List) -> List:
     # Q already has the first k elements.
     for i in range(len(categories)):
-        Q.insert(categories[i]+norm2(applicant, categories[i]))
+        add = []
+        if i >= k:
+            add = [norm2(applicant, categories[i])]
+        Q.insert(categories[i]+add)
         Q.remove_max()
     return Q.queue_to_list()
 
@@ -102,8 +105,6 @@ def def_joblist(Q: pq, applicant: List) -> List:
 # the application has format [u,w,0] where w is the vector containing applicable information.
 # compare with d(u,v)**2
 
-
 # TO DO:
-# Discard unapp
-# recomm jobs probabilistically
-# filter by recency
+# Applicable function
+# API
