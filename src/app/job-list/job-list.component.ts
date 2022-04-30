@@ -23,11 +23,11 @@ export class JobListComponent implements OnChanges {
   public _loading: boolean = true;
   public moreAvailable: boolean = true;
   public total: number | '...' = '...';
-  public showCategory: boolean  = SettingsService.settings.service.showCategory;
+  public showCategory: boolean = SettingsService.settings.service.showCategory;
   private start: number = 0;
 
   constructor(private http: SearchService, private titleService: Title, private meta: Meta, private router: Router, private translate: TranslateService) {
-   }
+  }
 
   public ngOnChanges(changes: SimpleChanges): any {
     this.getData();
