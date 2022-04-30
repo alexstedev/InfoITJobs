@@ -57,11 +57,12 @@ class Priority_queue:
             if ind == 0:
                 work = False
 
-    def remove_max(self):
+    def remove_max(self):  # or remove_min according to comp
         aux = self._heap[self._size]
         self._heap.pop()
         self._heap[1] = aux
         self._bubble_down(1)
+        self._size -= 1
 
     def print_queue(self):
         for e in self._heap:
@@ -70,21 +71,21 @@ class Priority_queue:
 
     def queue_to_list(self):
         l = []
-        for i in range(self._heap):
+        for i in range(1, len(self._heap)):
             l.append(self._heap[i][:len(self._heap)-1])
         return l
 
-    def max_element(self):
+    def max_element(self):  # or min according to comp
         return self._heap[1][-1]
 
     def prob_vector(self):
         d = 0
-        for i in range(len(self._heap)-1):
+        for i in range(1, len(self._heap)):
             d += self._heap[i][-1]
         assert(d != 0)
         c = self.max_element()
         l = self.queue_to_list()
         p = []
         for i in range(len(self._heap)-1):
-            p.append(l[i]/c)
+            p.append(l[i][-1]/d)
         return p
