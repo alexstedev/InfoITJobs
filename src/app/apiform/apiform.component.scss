@@ -17,251 +17,251 @@ nested-select {
  * Nested selects include an input container unless they're
  * permanently open.
  */
-	nested-select md-input-container {
-		width: 100%;
-	}
+nested-select md-input-container {
+	width: 100%;
+}
 
-	/*
-	 * Most of the styling for the contents of the input
-	 * container come from Angular Material, but we do
-	 * need to override a few styles.
-	 */
-	nested-select-selection.md-select-value {
-		border-bottom-color: rgba(0, 0, 0, 0.12);
-		cursor: pointer;
-	}
-	nested-select-selection.md-select-value:focus,
-	nested-select-selection.md-select-value.focused {
-		border-bottom-color: #3F51B5;
-		border-bottom-width: 2px;
-		outline: none;
-		padding-bottom: 0;
-	}
+/*
+ * Most of the styling for the contents of the input
+ * container come from Angular Material, but we do
+ * need to override a few styles.
+ */
+nested-select-selection.md-select-value {
+	border-bottom-color: rgba(0, 0, 0, 0.12);
+	cursor: pointer;
+}
+nested-select-selection.md-select-value:focus,
+nested-select-selection.md-select-value.focused {
+	border-bottom-color: #3F51B5;
+	border-bottom-width: 2px;
+	outline: none;
+	padding-bottom: 0;
+}
 
-	/*
-	 * The select options themselves are enclosed in a menu
-	 * container. This container may be permanently open or
-	 * it may open/close based on a trigger. By default, the
-	 * menu is triggerable, so set it to display: none.
-	 * Also give it an absolute position and a z-index so
-	 * it pops over the main page content.
-	 */
-	nested-select-menu {
-		display:  none;
-		position: absolute;
-		transform: translateY(-16px);
-		z-index: 100;
-	}
+/*
+ * The select options themselves are enclosed in a menu
+ * container. This container may be permanently open or
+ * it may open/close based on a trigger. By default, the
+ * menu is triggerable, so set it to display: none.
+ * Also give it an absolute position and a z-index so
+ * it pops over the main page content.
+ */
+nested-select-menu {
+	display:  none;
+	position: absolute;
+	transform: translateY(-16px);
+	z-index: 100;
+}
 
-	/*
-	 * The menu container has a tabindex so that clicking
-	 * anywhere within it keeps the focus within the nested
-	 * select. (Otherwise, focus may revert to the body
-	 * element.) There's no need to visually distinguish
-	 * this focus, though, so disable the normal outline.
-	 */
-	nested-select-menu:focus {
-		outline: none;
-	}
+/*
+ * The menu container has a tabindex so that clicking
+ * anywhere within it keeps the focus within the nested
+ * select. (Otherwise, focus may revert to the body
+ * element.) There's no need to visually distinguish
+ * this focus, though, so disable the normal outline.
+ */
+nested-select-menu:focus {
+	outline: none;
+}
 
-	/*
-	 * Adjust the menu if it is permanently fixed open.
-	 */
-	nested-select[fixed-menu] nested-select-menu {
-		display: block;
-		position: static;
-		z-index: inherit;
-	}
+/*
+ * Adjust the menu if it is permanently fixed open.
+ */
+nested-select[fixed-menu] nested-select-menu {
+	display: block;
+	position: static;
+	z-index: inherit;
+}
 
-	/*
-	 * When the meny is visible, show it.
-	 */
-	nested-select-menu.visible {
-		display: block;
-	}
+/*
+ * When the meny is visible, show it.
+ */
+nested-select-menu.visible {
+	display: block;
+}
 
-	/*
-	 * If the select only supports single values, there's
-	 * no need to show the accumulated values in the
-	 * input container, so shift the open menu up so that
-	 * it's placed "on top of" that container.
-	 */
-	nested-select:not([multiple]) nested-select-menu.visible {
-		transform: translate(2px,-48px);
-	}
+/*
+ * If the select only supports single values, there's
+ * no need to show the accumulated values in the
+ * input container, so shift the open menu up so that
+ * it's placed "on top of" that container.
+ */
+nested-select:not([multiple]) nested-select-menu.visible {
+	transform: translate(2px,-48px);
+}
 
-	/*
-	 * If search/filter is available, the menu container
-	 * includes a header with the search field.
-	 */
-	nested-select-header {
-		background-color: rgb(250, 250, 250);
-		border-bottom: 1px solid rgba(0,0,0,0.12);
-		padding-left: 10.667px;
-		height: 48px;
-		cursor: pointer;
-		position: relative;
-		display: flex;
-		align-items: center;
-		width: auto;
-	}
-	nested-select-header input[type=search] {
-		background-color: transparent;
-		border: none;
-		outline: none;
-		height: 100%;
-		width: 100%;
-		padding: 0;
-	}
+/*
+ * If search/filter is available, the menu container
+ * includes a header with the search field.
+ */
+nested-select-header {
+	background-color: rgb(250, 250, 250);
+	border-bottom: 1px solid rgba(0,0,0,0.12);
+	padding-left: 10.667px;
+	height: 48px;
+	cursor: pointer;
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: auto;
+}
+nested-select-header input[type=search] {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+}
 
-	/*
-	 * Beneath the header is the actual menu content.
-	 */
-	nested-select md-content {
-		overflow-x: hidden;
-		padding: 16px 0 0 10.667px;
-	}
+/*
+ * Beneath the header is the actual menu content.
+ */
+nested-select md-content {
+	overflow-x: hidden;
+	padding: 16px 0 0 10.667px;
+}
 
-	/*
-	 * The main content is a series of selectable
-	 * options. An option includes the text and
-	 * related styling cues (icons).
-	 */
+/*
+ * The main content is a series of selectable
+ * options. An option includes the text and
+ * related styling cues (icons).
+ */
 
-	nested-select-option {
-		display: block;
-		width: 100%;
-	}
+nested-select-option {
+	display: block;
+	width: 100%;
+}
 
-	nested-select-text {
-		display:  flex;
-		height: 40px;
-		width: 100%;
-	}
+nested-select-text {
+	display:  flex;
+	height: 40px;
+	width: 100%;
+}
 
-	/*
-	 * Each option may have a series of icons "in front
-	 * of it". There are two types of icons. If the
-	 * select is collapsible, then each option that has
-	 * children will include a button to collapse or
-	 * expand the display of those children. And if
-	 * the component only allows single selections, then
-	 * additional icons add visual guidance to the
-	 * heirarchy. (For multiple selects, the checkboxes
-	 * provide that visual guidance.)
-	 */
+/*
+ * Each option may have a series of icons "in front
+ * of it". There are two types of icons. If the
+ * select is collapsible, then each option that has
+ * children will include a button to collapse or
+ * expand the display of those children. And if
+ * the component only allows single selections, then
+ * additional icons add visual guidance to the
+ * heirarchy. (For multiple selects, the checkboxes
+ * provide that visual guidance.)
+ */
 
-	/*
-	 * Styles for the "guide" icons.
-	 */
-	nested-select-guide {
-		left: 8px;
-		position: relative;
-		top: -8px;
-	}
+/*
+ * Styles for the "guide" icons.
+ */
+nested-select-guide {
+	left: 8px;
+	position: relative;
+	top: -8px;
+}
 
-	/*
-	 * Styles for the collapse/expand buttons
-	 */
-	.nested-select-collapse.nested-select-collapse {
-		flex-shrink: 0;
-		left: 8px;
-		margin: 0px;
-		position: relative;
-		top: -8px;
-		width:  40px;
-	}
-	.nested-select-collapse ng-md-icon {
-		color:  rgba(0,0,0,0.38);
-	}
-	.nested-select-collapse:focus ng-md-icon,
-	.nested-select-collapse:hover ng-md-icon {
-		color:  rgba(0,0,0,0.87);
-	}
-	.nested-select-collapse svg {
-		transition: transform 200ms linear 0s;
-	}
-	.nested-select-collapse.collapsed svg {
-		transform: rotate(-90deg);
-	}
+/*
+ * Styles for the collapse/expand buttons
+ */
+.nested-select-collapse.nested-select-collapse {
+	flex-shrink: 0;
+	left: 8px;
+	margin: 0px;
+	position: relative;
+	top: -8px;
+	width:  40px;
+}
+.nested-select-collapse ng-md-icon {
+	color:  rgba(0,0,0,0.38);
+}
+.nested-select-collapse:focus ng-md-icon,
+.nested-select-collapse:hover ng-md-icon {
+	color:  rgba(0,0,0,0.87);
+}
+.nested-select-collapse svg {
+	transition: transform 200ms linear 0s;
+}
+.nested-select-collapse.collapsed svg {
+	transform: rotate(-90deg);
+}
 
-	/*
-	 * Individual options are implemented as Angular
-	 * Material checkboxes, and most of their styles
-	 * come from that library. We do need to make a
-	 * few adjustments, though.
-	 */
+/*
+ * Individual options are implemented as Angular
+ * Material checkboxes, and most of their styles
+ * come from that library. We do need to make a
+ * few adjustments, though.
+ */
 
-	nested-select md-checkbox:last-of-type {
-		display: block;
-		margin-left: 16px;
-		width: 100%;
-	}
+nested-select md-checkbox:last-of-type {
+	display: block;
+	margin-left: 16px;
+	width: 100%;
+}
 
-	nested-select md-checkbox > .md-label {
-		overflow-x: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		width: calc(100% - 16px);
-	}
+nested-select md-checkbox > .md-label {
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: calc(100% - 16px);
+}
 
-	nested-select[multiple] md-checkbox > .md-label {
-		width: calc(100% - 40px - 16px);
-	}
+nested-select[multiple] md-checkbox > .md-label {
+	width: calc(100% - 40px - 16px);
+}
 
-	/*
-	 * If the component is using single select, don't
-	 * display the actual checkboxes (and don't shift
-	 * the label over to leave room for them).
-	 * Also display any checked text using the primaru
-	 * color.
-	 */
-	nested-select:not([multiple]) md-checkbox > .md-container {
-		display: none;
-	}
-	nested-select:not([multiple]) md-checkbox > .md-label {
-		margin-left: 0;
-	}
-	nested-select:not([multiple]) md-checkbox.md-checked {
-		color: #3F51B5;
-	}
+/*
+ * If the component is using single select, don't
+ * display the actual checkboxes (and don't shift
+ * the label over to leave room for them).
+ * Also display any checked text using the primaru
+ * color.
+ */
+nested-select:not([multiple]) md-checkbox > .md-container {
+	display: none;
+}
+nested-select:not([multiple]) md-checkbox > .md-label {
+	margin-left: 0;
+}
+nested-select:not([multiple]) md-checkbox.md-checked {
+	color: #3F51B5;
+}
 
-	/*
-	 * Since the md-checkbox elements might not
-	 * span the entire width of the menu, we use
-	 * a pseudo-element to render the focus, hover,
-	 * and selected styles. We can extend it the
-	 * full width using a bit of vw trickery.
-	 */
-	nested-select md-checkbox:focus::before,
-	nested-select md-checkbox:hover::before,
-	nested-select:not([multiple]) md-checkbox.md-checked::before {
-		content: "";
-		position: absolute;
-		height: 40px;
-		width: 200vw;
-		background-color: rgb(238, 238, 238);
-		transform: translate(-100vw,-8px);
-	}
+/*
+ * Since the md-checkbox elements might not
+ * span the entire width of the menu, we use
+ * a pseudo-element to render the focus, hover,
+ * and selected styles. We can extend it the
+ * full width using a bit of vw trickery.
+ */
+nested-select md-checkbox:focus::before,
+nested-select md-checkbox:hover::before,
+nested-select:not([multiple]) md-checkbox.md-checked::before {
+	content: "";
+	position: absolute;
+	height: 40px;
+	width: 200vw;
+	background-color: rgb(238, 238, 238);
+	transform: translate(-100vw,-8px);
+}
 
-	/*
-	 * Keep the icons visible even when the option is
-	 * focus/hover/checked by raising their z-index.
-	 */
-	nested-select button,
-	nested-select-guide {
-		z-index: 101;
-	}
-	nested-select[fixed-menu] button,
-	nested-select[fixed-menu] nested-select-guide {
-		z-index: 1;
-	}
+/*
+ * Keep the icons visible even when the option is
+ * focus/hover/checked by raising their z-index.
+ */
+nested-select button,
+nested-select-guide {
+	z-index: 101;
+}
+nested-select[fixed-menu] button,
+nested-select[fixed-menu] nested-select-guide {
+	z-index: 1;
+}
 
-	/*
-	 * Handle collapse/expand via CSS. Someday
-	 * this might be animated.
-	 */
-	nested-select-options.collapsed {
-		display: none;
-	}
+/*
+ * Handle collapse/expand via CSS. Someday
+ * this might be animated.
+ */
+nested-select-options.collapsed {
+	display: none;
+}
 
