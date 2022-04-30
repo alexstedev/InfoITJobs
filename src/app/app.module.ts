@@ -38,6 +38,7 @@ import { TranslationLoader } from './services/localization/loader';
 import { AppRoutingModule } from './app-routing.module';
 import { InfoChipsComponent } from './components/info-chips/info-chips.component';
 
+
 export function initSettings(settings: SettingsService): () => Promise<void> {
   return () => settings.load();
 }
@@ -57,6 +58,7 @@ export function initSettings(settings: SettingsService): () => Promise<void> {
     PrivacyPolicyComponent,
     InfoChipsComponent,
   ],
+
   entryComponents: [ApplyModalComponent, ErrorModalComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -98,4 +100,4 @@ export function initSettings(settings: SettingsService): () => Promise<void> {
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
