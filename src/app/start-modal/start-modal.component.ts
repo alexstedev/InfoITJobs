@@ -19,11 +19,11 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-apply-modal',
-  templateUrl: './apply-modal.component.html',
-  styleUrls: ['./apply-modal.component.scss'],
+  selector: 'app-start-modal',
+  templateUrl: './start-modal.component.html',
+  styleUrls: ['./start-modal.component.scss'],
 })
-export class ApplyModalComponent implements OnInit {
+export class StartModalComponent implements OnInit {
 
   public job: any;
   public source: string;
@@ -201,7 +201,7 @@ export class ApplyModalComponent implements OnInit {
   public save(): void {
     if (this.form.valid) {
       this.applying = true;
-      this.analytics.trackEvent(`Apply to Job: ${this.job.id}`);
+      this.analytics.trackEvent(`Start to Job: ${this.job.id}`);
       let requestParams: any = {
         firstName: encodeURIComponent(this.form.value.firstName),
         lastName: encodeURIComponent(this.form.value.lastName),

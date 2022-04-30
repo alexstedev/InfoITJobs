@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
+import { StartModalComponent } from '../start-modal/start-modal.component';
+import { NovoModalService } from 'novo-elements';
+
+
 
 @Component({
   selector: 'app-main-page',
@@ -14,7 +18,15 @@ export class MainPageComponent {
   public error: boolean = false;
   public sidebarCss: object = {};
 
-  constructor() { }
+
+  constructor(
+    private modalService: NovoModalService,
+    private viewContainerRef: ViewContainerRef,
+  ) {
+    this.modalService.open(StartModalComponent, {
+      viewContainer: this.viewContainerRef
+    });
+  }
 
   public onSidebarFilter(filter: any): void {
     this.listFilter = filter;
