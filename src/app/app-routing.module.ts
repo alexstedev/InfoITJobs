@@ -5,12 +5,14 @@ import { JobDetailsComponent } from './job-details/job-details.component';
 import { JobResolver } from './job.resolver';
 import { environment } from '../environments/environment';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { APIFormComponent } from './apiform/apiform.component';
 
 const appRoutes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'jobs/:id', component: JobDetailsComponent, resolve: { message: JobResolver } },
   { path: 'jobs', component: MainPageComponent },
   { path: 'privacy', component: PrivacyPolicyComponent },
+  { path: 'form', component: APIFormComponent },
   {
     path: '**',
     redirectTo: '/',
@@ -18,11 +20,11 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-   imports: [RouterModule.forRoot(appRoutes, {
-        enableTracing: false,
-        useHash: environment.useHash,
-        initialNavigation: 'enabled',
-      })],
+  imports: [RouterModule.forRoot(appRoutes, {
+    enableTracing: false,
+    useHash: environment.useHash,
+    initialNavigation: 'enabled',
+  })],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }
