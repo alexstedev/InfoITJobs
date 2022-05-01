@@ -4,6 +4,8 @@ import { Title, Meta } from '@angular/platform-browser';
 import { SettingsService } from '../services/settings/settings.service';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { HttpService } from '../http.service';
+
 
 @Component({
   selector: 'app-job-list',
@@ -26,7 +28,7 @@ export class JobListComponent implements OnChanges {
   public showCategory: boolean = SettingsService.settings.service.showCategory;
   private start: number = 0;
 
-  constructor(private http: SearchService, private titleService: Title, private meta: Meta, private router: Router, private translate: TranslateService) {
+  constructor(private http: SearchService, private titleService: Title, private meta: Meta, private router: Router, private translate: TranslateService, private http2: HttpService) {
   }
 
   public ngOnChanges(changes: SimpleChanges): any {
@@ -41,6 +43,7 @@ export class JobListComponent implements OnChanges {
     this.meta.updateTag({ name: 'twitter:description', content: description });
     this.meta.updateTag({ name: 'description', content: description });
     this.http.getjobs(this.filter, { start: this.start }).subscribe(this.onSuccess.bind(this), this.onFailure.bind(this));
+    console.log(this.http2.getOffers())
   }
 
   public loadMore(): void {
