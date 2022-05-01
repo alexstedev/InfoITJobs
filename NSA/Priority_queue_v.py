@@ -66,13 +66,14 @@ class Priority_queue:
 
     def print_queue(self):
         for e in self._heap:
-            print(e, end=" ")
+            if e is not None:
+                print(e, end=" ")
         print()
 
     def queue_to_list(self):
         l = []
         for i in range(1, len(self._heap)):
-            l.append(self._heap[i][:len(self._heap)-1])
+            l.append(self._heap[i][:len(self._heap[i])])
         return l
 
     def max_element(self):  # or min according to comp

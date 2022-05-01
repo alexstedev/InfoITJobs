@@ -1,10 +1,6 @@
 import json
-from typing import List
+from typing import Dict, List
 from Priority_queue_v import Priority_queue as pq
-
-
-def build_categories():
-    ...
 
 
 def divide(v: List, n: int) -> List:
@@ -35,75 +31,70 @@ def applicant_vector(profile: List, activity: List, n: int) -> List:
     return divide(profile + divide(activity, n), 2)
 
 
-def build_first(categories: List[List], applicant: List, k: int) -> List:
-    # given list of k categories, returns the extension with euclidean distance squared.
-    for i in range(k):
-        categories[i] += norm2(categories[i], applicant)
-    return categories
-
-
-def applicable(applicant: List, Job) -> bool: ...
-
-# Need: sc_matrix,
+def build_first(sc_matrix: List[List], applicant: List, k: int) -> List:
+    # given list of k sc_matrix, returns the extension with euclidean distance squared.
+    for i in range(len(sc_matrix)):
+        sc_matrix[i] += [norm2(sc_matrix[i], applicant)]
+    return sc_matrix
 
 
 skills = []
 profile = []
 activity = []
-sc_matrix = [[]]
-act_num = 1
 k = 10
-n = len(skills)  # number of skills
-applicant = applicant_vector(profile, activity, act_num)
-first_k = build_first(sc_matrix, applicant, k)
-Q = pq(first_k, k)
+act_num = 1
+# applicant = applicant_vector(profile, activity, act_num)
 
 # Layer 1.
 
 
-def search_engine(Q: pq, categories: List[List], applicant: List) -> List:
+def keystoint(x):
+    return {int(k): v for k, v in x.items()}
+
+
+def retrieve_data():
+    with open('sc_id_to_name.json') as file:
+        M = json.load(file)
+    with open('category_matrix.json') as file:
+        sc_matrix = json.load(file)
+    with open('skills_id_to_name.json') as file:
+        v = json.load(file)
+    return M, sc_matrix, len(v)
+
+
+def search_engine(Q: pq, sc_matrix: List[List], applicant: List) -> List:
     # Q already has the first k elements.
-    for i in range(len(categories)):
-        add = []
-        if i >= k:
-            add = [norm2(applicant, categories[i])]
-        Q.insert(categories[i]+add)
+    for i in range(len(sc_matrix)):
+        Q.insert(sc_matrix[i])
         Q.remove_max()
     return Q.queue_to_list()
 
 
-def num_jobs(Q: pq) -> List:
-    p = Q.prob_vector()
-    num_jobs = []
-    for i in range(len(p)):
-        num_jobs.append(int(p[i]*Q.size()))
-    return num_jobs
+def exec():
+    M, sc_matrix, n = retrieve_data()
+    # print(M) works
+    # print(sc_matrix) works
+    applicant = []
+    # generate an applicant profile
+    K = 1
+    for i in range(n):
+        if K > 0:
+            applicant.append(1)
+        else:
+            applicant.append(0)
+        K *= -1
+    # now we should have a real applicant
+
+    Q = pq(build_first(sc_matrix, applicant, k), k)
+    search_engine(Q, sc_matrix, applicant)
+    v = Q.queue_to_list()
+    rc_sc_id = {}
+    for i in range(len(v)):
+        rc_sc_id[M[str(v[i][-2])]] = 0
+    return list(rc_sc_id)[:k]
 
 
-def x_jobs(v: List, x: int) -> List:
-    i = 0
-    jobs = []
-    while i < x and i < len(v):
-        jobs += v[i]
-        i += 1
-    return jobs
-
-
-def def_joblist(Q: pq, applicant: List) -> List:
-    l = Q.queue_to_list()
-    num_job = num_jobs(Q)
-    job_list = []
-    # M should be a map from category id to list of jobs in the category.
-    M = []
-    for i in range(len(l)):
-        v = M[l[i][-2]]
-        job_list += x_jobs(v, num_job[i])
-    return job_list
-
+print(exec())
 # elements in the queue will be [v,'id', d(v,u)**2] where u is the application.
 # the application has format [u,w,0] where w is the vector containing applicable information.
 # compare with d(u,v)**2
-
-# TO DO:
-# Applicable function
-# API
