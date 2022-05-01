@@ -12,11 +12,11 @@ There are tons of jobs in IT and for professionals looking for a position, it ma
 
 This repository contains:
 
-1. Completed: Given a list with a user's skills, it produces an ordered list of suitable IT jobs obtained from the Infojobs api. Due to inconsistence in the database, this cannot be done, but we can recommend a specific IT job category based on the user's skills, all served on an intuitive and easy to use website.
+1. ✅ Given a list with a user's skills, it produces an ordered list of suitable IT jobs obtained from the Infojobs api. Due to inconsistence in the database, this cannot be done, but we can recommend a specific IT job category based on the user's skills, all served on an intuitive and easy to use website.
 
-2. (WIP) The user an input the skills in a multiple select dropdown menu on the frontend.
+2. 🕒 The user an input the skills in a multiple select dropdown menu on the frontend.
 
-3. (WIP) The user can search for IT jobs according to relevant criteria, such as experience needed, location, salary and categories.
+3. 🕒 The user can search for IT jobs according to relevant criteria, such as experience needed, location, salary and categories.
 
 
 ## Table of Contents
@@ -30,31 +30,16 @@ This repository contains:
 - [Running end-to-end tests](#maintainers)
 - [License](#license)
 
-## Background
+## How we built it
 
-Standard Readme started with the issue originally posed by [@maxogden](https://github.com/maxogden) over at [feross/standard](https://github.com/feross/standard) in [this issue](https://github.com/feross/standard/issues/141), about whether or not a tool to standardize readmes would be useful. A lot of that discussion ended up in [zcei's standard-readme](https://github.com/zcei/standard-readme/issues/1) repository. While working on maintaining the [IPFS](https://github.com/ipfs) repositories, I needed a way to standardize Readmes across that organization. This specification started as a result of that.
+We adapted the Bullhorn-staffing dashboard API for hosting IT jobs. We chose it mainly due to its modern appearance and its implementation in Angular.js, because we value its wide adoption and the availability of libraries, that allowed us to create a demo to improve upon using explained ideas. In parallel, we started working on the recommendation algorithm and it's implementation in python using heaps.
 
-> Your documentation is complete when someone can use your module without ever
-having to look at its code. This is very important. This makes it possible for
-you to separate your module's documented interface from its internal
-implementation (guts). This is good because it means that you are free to
-change the module's internals as long as the interface remains the same.
+To better understand the API, we used the curl command and Postman to perform 'GET' http requests. After failing to integrate it with Angular.js, we implemented a python backend using the fastapi library.
 
-> Remember: the documentation, not the code, defines what a module does.
+We started building a form for users to input their skills and obtain recommendations by the algorithm.
 
-~ [Ken Williams, Perl Hackers](http://mathforum.org/ken/perl_modules.html#document)
+We designed the search algorithm both for the actual dataset and the hypothetical uniform one in Python, the latter providing better search experience as it recommends jobs directly.
 
-Writing READMEs is way too hard, and keeping them maintained is difficult. By offloading this process - making writing easier, making editing easier, making it clear whether or not an edit is up to spec or not - you can spend less time worrying about whether or not your initial documentation is good, and spend more time writing and using code.
-
-By having a standard, users can spend less time searching for the information they want. They can also build tools to gather search terms from descriptions, to automatically run example code, to check licensing, and so on.
-
-The goals for this repository are:
-
-1. A well defined **specification**. This can be found in the [Spec document](spec.md). It is a constant work in progress; please open issues to discuss changes.
-2. **An example README**. This Readme is fully standard-readme compliant, and there are more examples in the `example-readmes` folder.
-3. A **linter** that can be used to look at errors in a given Readme. Please refer to the [tracking issue](https://github.com/RichardLitt/standard-readme/issues/5).
-4. A **generator** that can be used to quickly scaffold out new READMEs. See [generator-standard-readme](https://github.com/RichardLitt/generator-standard-readme).
-5. A **compliant badge** for users. See [the badge](#badge).
 
 ## Install
 
