@@ -7,29 +7,30 @@ import { Injectable } from '@angular/core';
 export class HttpService {
 
 	private url = 'http://127.0.0.1:8000/';
+	private query = '';
 	constructor(private http: HttpClient) { }
 
 	getOffers(page?: number, subcategory?: string) {
-		_query = this.url + 'offers?';
+		this.query = this.url + 'offers?';
 
 		if (typeof subcategory !== "undefined") {
 			if (typeof page !== "undefined") {
-				_query += 'page=' + (page as string) + '&subcategory=' + subcategory;
+				this.query += 'page=' + (page as string) + '&subcategory=' + subcategory;
 			}
 			else {
-				_query += 'subcategory=' + subcategory;
+				this.query += 'subcategory=' + subcategory;
 			}
 		}
-		else {
-			_query += 'page=' + (page as string);
+		else if (typeof page !== "undefined") {
+			this.query += 'page=' + (page as string);
 		}
 
-		return this.http.get(_query);
+		return this.http.get(this.query);
 	}
 
 	getCategories() {
-		_query = this.url + 'condensed_categories';
-		return this.http.get(_query);
+		this.query = this.url + 'condensed_categories';
+		return this.http.get(this.query);
 	}
 
 }
