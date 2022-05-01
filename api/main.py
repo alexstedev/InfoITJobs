@@ -91,7 +91,30 @@ async def offers(category: Optional[str] = None, page: Optional[int] = None):
     data = response.json() if response and response.status_code == 200 else None
     return data
     
+@app.get("/all_offers")
+async def all_offers():
 
+    url = 'https://api.infojobs.net/api/7/offer?category=informatica-telecomunicaciones&page='
+    response = requests.request("GET", url + '1', headers=headers)
+    data = response.json() if response and response.status_code == 200 else None
+    
+    max_pages = data['totalPages']
+    for i in range(2, 5):
+        response = requests.request("GET", url + str(i), headers=headers)
+        temp_data = response.json() if response and response.status_code == 200 else None
+        data['items'] += temp_data['items']
+
+    return data
+
+    
+
+
+@app.get("/cities")
+async def cities():
+    url = 'https://api.infojobs.net/api/1/dictionary/city'
+    response = requests.request("GET", url, headers=headers)
+    data = response.json() if response and response.status_code == 200 else None
+    return data
 
 
 
