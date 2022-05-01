@@ -7,15 +7,16 @@ Hack UPC 2022 Project
 ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-Your README file is normally the first entry point to your code. It should tell people why they should use your module, how they can install it, and how they can use it. Standardizing how you write your README makes creating and maintaining your READMEs easier. Great documentation takes work!
+## Objective
+There are tons of jobs in IT and for professionals looking for a position, it may definitely get a bit overwhelming. By relating a huge database of jobs such as Infojobs more directly to prospective applicants, we believe we can provide smooth and efficient experience for both the contractors and the people looking for jobs.
 
 This repository contains:
 
-1. [The specification](spec.md) for how a standard README should look.
-2. A link to [a linter](https://github.com/RichardLitt/standard-readme-preset) you can use to keep your README maintained ([work in progress](https://github.com/RichardLitt/standard-readme/issues/5)).
-3. A link to [a generator](https://github.com/RichardLitt/generator-standard-readme) you can use to create standard READMEs.
-4. [A badge](#badge) to point to this spec.
-5. [Examples of standard READMEs](example-readmes/) - such as this file you are reading.
+1. Completed: Given a list with a user's skills, it produces an ordered list of suitable IT jobs obtained from the Infojobs api. Due to inconsistence in the database, this cannot be done, but we can recommend a specific IT job category based on the user's skills, all served on an intuitive and easy to use website.
+
+2. (WIP) The user an input the skills in a multiple select dropdown menu on the frontend.
+
+3. (WIP) The user can search for IT jobs according to relevant criteria, such as experience needed, location, salary and categories.
 
 Standard Readme is designed for open source libraries. Although it’s [historically](#background) made for Node and npm projects, it also applies to libraries in other languages and package managers.
 
@@ -24,13 +25,11 @@ Standard Readme is designed for open source libraries. Although it’s [historic
 
 - [Background](#background)
 - [Install](#install)
-- [Usage](#usage)
-	- [Generator](#generator)
-- [Badge](#badge)
-- [Example Readmes](#example-readmes)
-- [Related Efforts](#related-efforts)
-- [Maintainers](#maintainers)
-- [Contributing](#contributing)
+- [Development server](#development_server)
+- [Code Scaffolding](#badge)
+- [Build](#example-readmes)
+- [Running unit tests](#related-efforts)
+- [Running end-to-end tests](#maintainers)
 - [License](#license)
 
 ## Background
