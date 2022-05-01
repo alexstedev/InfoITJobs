@@ -59,7 +59,7 @@ def retrieve_data():
         sc_matrix = json.load(file)
     with open('skills_id_to_name.json') as file:
         v = json.load(file)
-    return M, sc_matrix, len(v)
+    return M, sc_matrix, v
 
 
 def search_engine(Q: pq, sc_matrix: List[List], applicant: List) -> List:
@@ -70,10 +70,19 @@ def search_engine(Q: pq, sc_matrix: List[List], applicant: List) -> List:
     return Q.queue_to_list()
 
 
+def skills_to_applicant(skills, M, v):
+    applicant = []
+    print("Applicant skills: ")
+    for i in M.keys():
+        if 
+        
+
+
 def exec():
-    M, sc_matrix, n = retrieve_data()
-    # print(M) works
-    # print(sc_matrix) works
+    M, sc_matrix, v = retrieve_data()
+    n = len(v)
+    # print(M) # works
+    # print(sc_matrix) #works
     applicant = []
     # generate an applicant profile
     K = 1
@@ -84,6 +93,7 @@ def exec():
             applicant.append(0)
         K *= -1
     # now we should have a real applicant
+
 
     Q = pq(build_first(sc_matrix, applicant, k), k)
     search_engine(Q, sc_matrix, applicant)
