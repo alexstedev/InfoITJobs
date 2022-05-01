@@ -1,23 +1,142 @@
-<form [formGroup]="customerForm" (ngSubmit)="onSubmit(customerForm)">
+<div class="background">
+    <div class="container">
+        <div class="screen">
+            <div class="screen-header">
+                <div class="screen-header-left">
+                    <div class="screen-header-button close"></div>
+                    <div class="screen-header-button maximize"></div>
+                    <div class="screen-header-button minimize"></div>
+                </div>
+                <div class="screen-header-right">
+                    <div class="screen-header-ellipsis"></div>
+                    <div class="screen-header-ellipsis"></div>
+                    <div class="screen-header-ellipsis"></div>
+                </div>
+            </div>
+            <div class="screen-body">
+                <div class="screen-body-item left">
+                    <div class="app-title">
+                        <span>SKILLSET</span>
+                        <span>SUMMARY</span>
+                    </div>
+                </div>
+                <div class="screen-body-item">
+                    <div class="app-form">
+                        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
 
-    <div class="column">
-        <label class="switch">
-            <input type="checkbox" formControlName="skill1">
-            <span class="slider">1</span>
-        </label>
-        <br />
-        <label class="switch">
-            <input type="checkbox" formControlName="skill2">
-            <span class="slider">2</span>
-        </label>
-        <br />
-        <label class="switch">
-            <input type="checkbox" formControlName="skill3">
-            <span class="slider">3</span>
-        </label>
-        <br />
+                            <div class="column">
+                                <label class="switch">
+                                    <input type="checkbox" formControlName="skill1">
+                                    <span class="slider">1</span>
+                                </label>
+                                <br />
+                                <label class="switch">
+                                    <input type="checkbox" formControlName="skill2">
+                                    <span class="slider">2</span>
+                                </label>
+                                <br />
+                                <label class="switch">
+                                    <input type="checkbox" formControlName="skill3">
+                                    <span class="slider">3</span>
+                                </label>
+                                <br />
+                            </div>
+                            <div class="column">
+                                <label class="switch">
+                                    <input type="checkbox" formControlName="skill1">
+                                    <span class="slider">4</span>
+                                </label>
+                                <br />
+                                <label class="switch">
+                                    <input type="checkbox" formControlName="skill2">
+                                    <span class="slider">5</span>
+                                </label>
+                                <br />
+                                <label class="switch">
+                                    <input type="checkbox" formControlName="skill3">
+                                    <span class="slider">6</span>
+                                </label>
+                                <br />
+                            </div>
+                            <div class="column">
+                                <label class="switch">
+                                    <input type="checkbox" formControlName="skill1">
+                                    <span class="slider">7</span>
+                                </label>
+                                <br />
+                                <label class="switch">
+                                    <input type="checkbox" formControlName="skill2">
+                                    <span class="slider">8</span>
+                                </label>
+                                <br />
+                                <label class="switch">
+                                    <input type="checkbox" formControlName="skill3">
+                                    <span class="slider">9</span>
+                                </label>
+                                <br />
+                            </div>
+                            <div class="column">
+                                <label class="switch">
+                                    <input type="checkbox" formControlName="skill1">
+                                    <span class="slider">7</span>
+                                </label>
+                                <br />
+                                <label class="switch">
+                                    <input type="checkbox" formControlName="skill2">
+                                    <span class="slider">8</span>
+                                </label>
+                                <br />
+                                <label class="switch">
+                                    <input type="checkbox" formControlName="skill3">
+                                    <span class="slider">9</span>
+                                </label>
+                                <br />
+                            </div>
+                            <div class="column">
+                                <label class="switch">
+                                    <input type="checkbox" formControlName="skill1">
+                                    <span class="slider">7</span>
+                                </label>
+                                <br />
+                                <label class="switch">
+                                    <input type="checkbox" formControlName="skill2">
+                                    <span class="slider">8</span>
+                                </label>
+                                <br />
+                                <label class="switch">
+                                    <input type="checkbox" formControlName="skill3">
+                                    <span class="slider">9</span>
+                                </label>
+                                <br />
+                            </div>
+                            <div class="column">
+                                <label class="switch">
+                                    <input type="checkbox" formControlName="skill1">
+                                    <span class="slider">7</span>
+                                </label>
+                                <br />
+                                <label class="switch">
+                                    <input type="checkbox" formControlName="skill2">
+                                    <span class="slider">8</span>
+                                </label>
+                                <br />
+                                <label class="switch">
+                                    <input type="checkbox" formControlName="skill3">
+                                    <span class="slider">9</span>
+                                </label>
+                                <br />
+                            </div>
+                            <br />
+                            <br />
+                            <div class="app-form-group buttons">
+                                <button class="app-form-button">CANCEL</button>
+                                <button class="app-form-button" type="submit">SEND</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <br />
-    <button type="submit">Submit</button>
-</form>
+</div>
