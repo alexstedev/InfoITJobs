@@ -1,60 +1,90 @@
-<div class="container">
-	<div class="screen">
-		<div class="screen-header">
-			<div class="screen-header-left">
-				<div class="screen-header-button close"></div>
-				<div class="screen-header-button maximize"></div>
-				<div class="screen-header-button minimize"></div>
-			</div>
-			<div class="screen-header-right">
-				<div class="screen-header-ellipsis"></div>
-				<div class="screen-header-ellipsis"></div>
-				<div class="screen-header-ellipsis"></div>
-			</div>
-		</div>
-		<div class="screen-body">
-			<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-				<label for="first-name">First Name: </label>
-				<input id="first-name" type="text" formControlName="firstName">
+<div class="background">
+    <div class="container">
+        <div class="screen">
+            <div class="screen-header">
+                <div class="screen-header-left">
+                    <div class="screen-header-button close"></div>
+                    <div class="screen-header-button maximize"></div>
+                    <div class="screen-header-button minimize"></div>
+                </div>
+                <div class="screen-header-right">
+                    <div class="screen-header-ellipsis"></div>
+                    <div class="screen-header-ellipsis"></div>
+                    <div class="screen-header-ellipsis"></div>
+                </div>
+            </div>
+            <div class="screen-body">
+                <div class="screen-body-item left">
+                    <div class="app-title">
+                        <span>SKILL</span>
+                        <span>ASSESSMENT</span>
+                    </div>
+                    <div class="app-contact">CONTACT INFO : +62 81 314 928 595</div>
+                </div>
+                <div class="screen-body-item">
+                    <div class="app-form">
+                        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+                            <div class="app-form-group">
+                                <input class="app-form-control" placeholder="Social links">
+                            </div>
+                            <div class="app-form-group">
+                                <input class="app-form-control" placeholder="Education" type="">
+                            </div>
+                            <br />
 
-				<br />
-				<br />
+                            <input class="app-form-control2" placeholder="Skill Assessment" disabled="">
+                            <label class="switch">
+                                <input type="checkbox" formControlName="skill1">
+                                <span class="slider">Front-end development</span>
+                            </label>
+                            <br />
 
-				<label for="last-name">Last Name: </label>
-				<input id="last-name" type="text" formControlName="lastName">
+                            <label class="switch">
+                                <input type="checkbox" formControlName="skill2">
+                                <span class="slider">Back-end development</span>
+                            </label>
+                            <br />
 
-				<br />
-				<br />
-				<label class="switch">
-					<input type="checkbox" formControlName="skill1">
-					<span class="slider">Skill 1</span>
-				</label>
-				<br />
+                            <label class="switch">
+                                <input type="checkbox" formControlName="skill1">
+                                <span class="slider">DevOps</span>
+                            </label>
+                            <br />
 
-				<label class="switch">
-					<input type="checkbox" formControlName="skill2">
-					<span class="slider">Skill 2</span>
-				</label>
-				<br />
+                            <label class="switch">
+                                <input type="checkbox" formControlName="skill1">
+                                <span class="slider">Data Science</span>
+                            </label>
+                            <br />
+                            <label class="switch">
+                                <input type="checkbox" formControlName="skill1">
+                                <span class="slider">Software development</span>
+                            </label>
+                            <br />
+                            <label class="switch">
+                                <input type="checkbox" formControlName="skill1">
+                                <span class="slider">Full-stack development</span>
+                            </label>
+                            <br />
+                            <label class="switch">
+                                <input type="checkbox" formControlName="skill1">
+                                <span class="slider">Graphic design</span>
+                            </label>
+                            <br />
+                            <label class="switch">
+                                <input type="checkbox" formControlName="skill1">
+                                <span class="slider">Data base management</span>
+                            </label>
+                            <br />
+                        </form>
+                        <div class="app-form-group buttons">
+                            <button class="app-form-button">CANCEL</button>
+                            <button class="app-form-button">SEND</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-				<label class="switch">
-					<input type="checkbox" formControlName="skill1">
-					<span class="slider">Skill 1</span>
-				</label>
-				<br />
-
-				<label class="switch">
-					<input type="checkbox" formControlName="skill1">
-					<span class="slider">Skill 1</span>
-				</label>
-				<br />
-				<label class="switch">
-					<input type="checkbox" formControlName="skill1">
-					<span class="slider">Skill 1</span>
-				</label>
-				<br />
-				<button type="submit">Submit</button>
-			</form>
-		</div>
-	</div>
+    </div>
 </div>

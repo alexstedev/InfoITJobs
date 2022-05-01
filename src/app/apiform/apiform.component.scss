@@ -1,4 +1,6 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -9,7 +11,9 @@ body {
   font-size: 12px;
 }
 
-body, button, input {
+body,
+button,
+input {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   letter-spacing: 1.4px;
@@ -141,6 +145,7 @@ body, button, input {
 .app-form-group.buttons {
   margin-bottom: 0;
   text-align: right;
+  margin-top: 20px;
 }
 
 .app-form-control {
@@ -234,3 +239,33 @@ body, button, input {
   }
 }
 
+.switch {
+  width: 50%;
+}
+
+.slider {
+  color: #666;
+  margin-left: 4px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.app-form-control2 {
+  width: 100%;
+  padding: 10px 0;
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 14px;
+  text-transform: uppercase;
+  outline: none;
+  transition: border-color .2s;
+}
+
+.app-form-control2::placeholder {
+  color: #666;
+}
+
+.app-form-control2:focus {
+  border-bottom-color: #ddd;
+}
