@@ -1,43 +1,60 @@
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+<div class="container">
+	<div class="screen">
+		<div class="screen-header">
+			<div class="screen-header-left">
+				<div class="screen-header-button close"></div>
+				<div class="screen-header-button maximize"></div>
+				<div class="screen-header-button minimize"></div>
+			</div>
+			<div class="screen-header-right">
+				<div class="screen-header-ellipsis"></div>
+				<div class="screen-header-ellipsis"></div>
+				<div class="screen-header-ellipsis"></div>
+			</div>
+		</div>
+		<div class="screen-body">
+			<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+				<label for="first-name">First Name: </label>
+				<input id="first-name" type="text" formControlName="firstName">
 
-    <label for="first-name">First Name: </label>
-    <input id="first-name" type="text" formControlName="firstName">
+				<br />
+				<br />
 
-    <br />
-    <br />
+				<label for="last-name">Last Name: </label>
+				<input id="last-name" type="text" formControlName="lastName">
 
-    <label for="last-name">Last Name: </label>
-    <input id="last-name" type="text" formControlName="lastName">
+				<br />
+				<br />
+				<label class="switch">
+					<input type="checkbox" formControlName="skill1">
+					<span class="slider">Skill 1</span>
+				</label>
+				<br />
 
-    <br />
-    <br />
-    <label class="switch">
-        <input type="checkbox" formControlName="skill1">
-        <span class="slider">Skill 1</span>
-    </label>
-    <br />
+				<label class="switch">
+					<input type="checkbox" formControlName="skill2">
+					<span class="slider">Skill 2</span>
+				</label>
+				<br />
 
-    <label class="switch">
-        <input type="checkbox" formControlName="skill2">
-        <span class="slider">Skill 2</span>
-    </label>
-    <br />
+				<label class="switch">
+					<input type="checkbox" formControlName="skill1">
+					<span class="slider">Skill 1</span>
+				</label>
+				<br />
 
-    <label class="switch">
-        <input type="checkbox" formControlName="skill1">
-        <span class="slider">Skill 1</span>
-    </label>
-    <br />
-
-    <label class="switch">
-        <input type="checkbox" formControlName="skill1">
-        <span class="slider">Skill 1</span>
-    </label>
-    <br />
-    <label class="switch">
-        <input type="checkbox" formControlName="skill1">
-        <span class="slider">Skill 1</span>
-    </label>
-    <br />
-    <button type="submit">Submit</button>
-</form>
+				<label class="switch">
+					<input type="checkbox" formControlName="skill1">
+					<span class="slider">Skill 1</span>
+				</label>
+				<br />
+				<label class="switch">
+					<input type="checkbox" formControlName="skill1">
+					<span class="slider">Skill 1</span>
+				</label>
+				<br />
+				<button type="submit">Submit</button>
+			</form>
+		</div>
+	</div>
+</div>
