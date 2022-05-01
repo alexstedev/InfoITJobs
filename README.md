@@ -18,8 +18,6 @@ This repository contains:
 
 3. (WIP) The user can search for IT jobs according to relevant criteria, such as experience needed, location, salary and categories.
 
-Standard Readme is designed for open source libraries. Although it’s [historically](#background) made for Node and npm projects, it also applies to libraries in other languages and package managers.
-
 
 ## Table of Contents
 
