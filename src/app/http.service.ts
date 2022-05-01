@@ -15,22 +15,15 @@ export class HttpService {
 
 		if (typeof subcategory !== "undefined") {
 			if (typeof page !== "undefined") {
-<<<<<<< Updated upstream
 				this.query += 'page=' + page.toString() + '&subcategory=' + subcategory;
-=======
-				this.query += 'page=' + (page as unknown as string) + '&subcategory=' + subcategory;
->>>>>>> Stashed changes
+
 			}
 			else {
 				this.query += 'subcategory=' + subcategory;
 			}
 		}
 		else if (typeof page !== "undefined") {
-<<<<<<< Updated upstream
 			this.query += 'page=' + page.toString();
-=======
-			this.query += 'page=' + (page as unknown as string);
->>>>>>> Stashed changes
 		}
 
 		return this.http.get(this.query);
