@@ -15,14 +15,14 @@ export class HttpService {
 
 		if (typeof subcategory !== "undefined") {
 			if (typeof page !== "undefined") {
-				this.query += 'page=' + (page as string) + '&subcategory=' + subcategory;
+				this.query += 'page=' + page.toString() + '&subcategory=' + subcategory;
 			}
 			else {
 				this.query += 'subcategory=' + subcategory;
 			}
 		}
 		else if (typeof page !== "undefined") {
-			this.query += 'page=' + (page as string);
+			this.query += 'page=' + page.toString();
 		}
 
 		return this.http.get(this.query);
