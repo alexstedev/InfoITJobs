@@ -76,7 +76,7 @@ class Priority_queue:
             l.append(self._heap[i][:len(self._heap[i])])
         return l
 
-    def max_element(self):  # or min according to comp
+    def min_element(self):  # or min according to comp
         return self._heap[1][-1]
 
     def prob_vector(self):
